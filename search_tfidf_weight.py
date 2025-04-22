@@ -38,8 +38,9 @@ def run_search(dict_file, postings_file, query_file, results_file):
     dictionary = load_dictionary(dict_file)
     doc_lengths = load_doc_lengths(postings_file)
     total_docs = len(doc_lengths)
-    
-    with open(query_file, 'r') as qfile, open(results_file, 'w') as rfile:
+
+    with (open(query_file, 'r', encoding="utf8") as qfile,
+          open(results_file, 'w', encoding="utf8") as rfile):
         query = qfile.readline().strip()
         ranked_results = compute_tfidf_scores(query, dictionary, postings_file, doc_lengths, total_docs)
         rfile.write(' '.join(map(str, ranked_results)) + '\n')
@@ -48,7 +49,7 @@ def run_search(dict_file, postings_file, query_file, results_file):
 # Load dictionary
 def load_dictionary(dict_file):
     dictionary = {}
-    with open(dict_file, 'r') as file:
+    with open(dict_file, 'r', encoding="utf8") as file:
         for line in file:
             term, offset, length = line.strip().split()
             dictionary[term] = (int(offset), int(length))
@@ -57,7 +58,7 @@ def load_dictionary(dict_file):
 # Load document lengths
 def load_doc_lengths(postings_file):
     doc_lengths = {}
-    with open(postings_file, 'r') as file:
+    with open(postings_file, 'r', encoding="utf8") as file:
         for line in file:
             if line.startswith("LC "):
                 _field, docID, length = line.strip().split()
@@ -104,7 +105,7 @@ def compute_tfidf_scores(query, dictionary, postings_file, doc_lengths, total_do
 
     title_scores = defaultdict(float)
     content_scores = defaultdict(float)
-    with open(postings_file, 'r') as p_file:
+    with open(postings_file, 'r', encoding="utf8") as p_file:
         for rawterm in set(query_terms):
             term = f"C:{rawterm}"
             if term in dictionary:
