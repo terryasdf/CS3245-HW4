@@ -111,7 +111,7 @@ def compute_tfidf_scores(query, dictionary, postings_file, doc_lengths, total_do
     
     # Normalize scores using document length
     for docID in scores:
-        scores[docID] /= doc_lengths.get(docID, 1)
+        scores[docID] /= doc_lengths[(docID, 'content')]
     
     # Return results in ranked order
     return sorted(scores.keys(), key=lambda docid: scores[docid], reverse=True)
