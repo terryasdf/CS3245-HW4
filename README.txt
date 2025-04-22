@@ -1,5 +1,5 @@
 This is the README file for A0315045N-A0245219E-A0312970H-A0312824L's submission
-Email(s): e1508640@u.nus.edu, e0893443@u.nus.edu, FILL IN FOR TERRY AND BERDAN
+Email(s): e1508640@u.nus.edu, e0893443@u.nus.edu, e1496695@u.nus.edu, e1496620@u.nus.edu
 
 == Python Version ==
 
