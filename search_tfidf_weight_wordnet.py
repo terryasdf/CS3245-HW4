@@ -10,6 +10,8 @@ from collections import defaultdict, Counter
 
 from nltk.stem import PorterStemmer
 from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import wordnet as wn
+
 stemmer = PorterStemmer()
 
 # Settings ###############################################################################
@@ -77,6 +79,20 @@ def get_postings_list(file, offset):
     postings = [(int(p.split(':')[0]), int(p.split(':')[1])) for p in postings]
     return postings
 
+# Maximum number of different synonym meanings for expansion
+NUN_MAX_SYNONYM_SENSES = 4
+
+# Do query expansion for each query term with WordNet
+def expand_words(words):
+    ret = []
+    for word in words:
+        for synonyms in wn.synonyms(word)[:NUN_MAX_SYNONYM_SENSES]:
+            if synonyms:
+                ret.extend(synonyms[0].split('_'))
+    ret.extend(words)
+    print(ret)
+    return ret
+
 def preprocess_query(query):
     words = []
 
@@ -88,7 +104,8 @@ def preprocess_query(query):
 
     sentences = sent_tokenize(query)
     for sentence in sentences:
-        words.extend([stemmer.stem(word.lower()) for word in word_tokenize(sentence)])
+        new_words = [word.lower() for word in word_tokenize(sentence)]
+        words.extend([stemmer.stem(word) for word in expand_words(new_words)])
     return words
 
 # Main function for calculating cosine and retrieve the ranked results
