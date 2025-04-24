@@ -55,9 +55,9 @@ and append them to the query before ranking.
 Method:
 - Perform an initial retrieval with the baseline model.
 - Take the top K=5 documents as relevant feedback.
-- Score all content terms in those docs by tf·idf, pick top 10 new terms (not in the
+- Score all content terms in those docs by tf×idf, pick top 10 new terms (not in the
   original query), and append them.
-- Rerank with the expanded query using the same weighted TF×IDF.
+- Rerank with the expanded query using the same weighted tf×idf.
 
 Each technique is invoked by choosing its corresponding search script.
 We carried out experiments comparing baseline, WordNet expansion, and PRF on the
