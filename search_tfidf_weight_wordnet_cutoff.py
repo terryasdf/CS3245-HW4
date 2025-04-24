@@ -19,7 +19,7 @@ stemmer = PorterStemmer()
 debug = True
 TITLE_WT = 5.
 OUTPUT_CUTOFF = 1000
-NUN_MAX_SYNONYM_SENSES = 3
+NUM_MAX_SYNONYM_SENSES = 3
 
 # Generic helpers ########################################################################
 
@@ -93,7 +93,7 @@ def get_postings_list(file, offset):
 def expand_words(words):
     ret = []
     for word in words:
-        for synonyms in wn.synonyms(word)[:NUN_MAX_SYNONYM_SENSES]:
+        for synonyms in wn.synonyms(word)[:NUM_MAX_SYNONYM_SENSES]:
             if synonyms:
                 ret.extend(synonyms[0].split('_'))
     ret.extend(words)
