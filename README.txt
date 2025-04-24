@@ -67,8 +67,8 @@ development queries and report MAF2 scores in this README.
 
 README.txt                      This file
 index.py                        Indexing program
-search_prf.py                   WordNet-based searching program
-search_tfidf_weight_wordnet.py  PRF-based searching program
+search_prf.py                   PRF-based searching program
+search_tfidf_weight_wordnet.py  WordNet-based searching program
 search.py                       Searching program for evaluation (same as XXX FIXME XXX)
 dictionary.txt                  Dictionary file of the index
 postings.txt                    Postings file of the index
