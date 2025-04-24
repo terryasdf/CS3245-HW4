@@ -38,7 +38,7 @@ sent through nltk tokenization and Porter stemming.
 The query is ran on the `title` and `content` zones of each document separately, allowing
 us to give different weights depending on which zone a match is in - inspired by Web
 search techniques. We find that giving heigher weight to the `title` improves performance,
-although the information within in does not look useful for most case retrieval tasks.
+although the information within it does not look useful for most case retrieval tasks.
 
 === Query Refinement ===
 
