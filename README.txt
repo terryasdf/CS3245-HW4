@@ -28,11 +28,11 @@ doc_id:term_frequency doc_id:term_frequency
 Search.py: 
 XXXXXXXX  FILL IN XXXXXXXX
 
-Query Refinement:
+Query Refinement/Expansion:
 
-We have implemented two independent query refinement techniques:
+We have experimented with two independent query refinement/Expansion techniques:
 
-WordNet‑Based Query Expansion (search_tfidf_weight_wordnet.py)
+WordNet‑Based Query Expansion (search.py)
 
 Method:
 Look up each stemmed input term in WordNet synsets, select high-confidence synonyms,
@@ -55,7 +55,8 @@ MAF2 scores in this README.
 
 README.txt      This file
 index.py        Indexing program
-search.py       Searching program
+search.py       Searching program (WordNet expansion, used for final submission)
+search_prf.py   Searching program (PRF, experimented but not used for final submission)
 dictionary.txt  Dictionary file of the index
 postings.txt    Postings file of the index
 BONUS.docx      For bonus marks qualificatiion
