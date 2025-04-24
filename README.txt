@@ -69,7 +69,7 @@ README.txt                      This file
 index.py                        Indexing program
 search_prf.py                   PRF-based searching program
 search_tfidf_weight_wordnet.py  WordNet-based searching program
-search.py                       Searching program for evaluation (same as XXX FIXME XXX)
+search.py                       WordNet-based searching program with cutoff (tfidf_weight_wordnet_cutoff)
 dictionary.txt                  Dictionary file of the index
 postings.txt                    Postings file of the index
 BONUS.docx                      For bonus marks qualificatiion
